@@ -12,14 +12,9 @@ document.getElementById('button').addEventListener('click', (e) => {
 async function send() {
   // Register Service Worker
   console.log("Registering service worker...");
-  let register = navigator.serviceWorker.controller;
-  if (navigator.serviceWorker.controller) {
-    console.log("[PWA Builder] active service worker found, no need to register");
-  } else {
-    register = await navigator.serviceWorker.register("/worker.js", {
+  let register = await navigator.serviceWorker.register("/worker.js", {
       scope: "/"
     });
-  }
   console.log("Service Worker Registered...");
   // Register Push
   console.log("Registering Push...");
